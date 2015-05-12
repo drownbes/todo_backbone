@@ -10,11 +10,16 @@ gulp.task('copy-fonts', function() {
   .pipe(gulp.dest('./dist/fonts'))
 });
 
+gulp.task('copy-bootstrap', function() {
+    return gulp.src('node_modules/bootstrap/dist/css/bootstrap.min.css'
+    )
+    .pipe(gulp.dest('dist/styles'));
+});
+
 gulp.task('copy', function() {
     return gulp.src([
         'app/css/style.css',
-        'app/index.html',
-        'node_modules/bootstrap/dist/css/bootstrap.min.css'
+        'app/index.html'
     ])
     .pipe(gulp.dest('dist'));
 });
@@ -38,5 +43,5 @@ gulp.task('ghp', function() {
     .pipe(ghPages());
 });
 
-gulp.task('build',['copy-fonts', 'copy', 'scripts']);
+gulp.task('build',['copy-bootstrap', 'copy-fonts', 'copy', 'scripts']);
 gulp.task('deploy',['build', 'ghp']);
