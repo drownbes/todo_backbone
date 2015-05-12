@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Todo</title>
+        <!--<link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">-->
+        <link href="bootstrap.min.css" rel="stylesheet" media="screen">
+        <link href="style.css" rel="stylesheet" media="screen">
+    </head>
+    <body>
+        <!--[if lt IE 8]>
+            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+        <div id="todoApp" class="container">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h2 class="panel-title">To do:</h3>
+                </div>
+
+                <div class="panel-body">
+                    <form>
+                        <div class="form-group">
+                            <div class="col-lg-11 col-md-11">
+                                <input id="todo-title-field" type="text" class="form-control" placeholder="Add an item">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-1 col-md-1">
+                                <button id="add-btn" type="button" class="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="list-group" id="undone">
+                </div>
+
+                <div class="panel-heading">
+                    <h2 class="panel-title">Done:</h3>
+                </div>
+
+                <div class="list-group" id="done">
+                </div>
+            </div>
+        </div>
+
+        <script type="text/template" id="todoTpl">
+            <div class="row">
+                <div class="col-lg-10 col-md-10">
+                    <h5><%- title %></h4>
+                </div>
+
+                <div class="col-lg-2 col-md-2">
+                    <div class="control-btns btn-group" role="group">
+                        <button class="btn btn-default done-btn" title="Toggle">
+                            <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        </button>
+                        <button class="btn btn-default remove-btn " title="Remove">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12 col-md-12">
+                    <small class="text-success"><%- date %></small>
+                </div>
+            </div>
+        </script>
+
+        <script src="bundle.js"></script>
+    </body>
+</html>
