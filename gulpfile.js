@@ -33,9 +33,10 @@ gulp.task('scripts', function() {
     .pipe(gulp.dest('./dist/'));
 });
 
-gulp.task('deploy', function() {
+gulp.task('ghp', function() {
     return gulp.src('./dist/**/*')
     .pipe(ghPages());
 });
 
 gulp.task('build',['copy-fonts', 'copy', 'scripts']);
+gulp.task('deploy',['build', 'ghp']);
